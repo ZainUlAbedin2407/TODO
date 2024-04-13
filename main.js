@@ -7,7 +7,7 @@ async function createTodo(todos) {
             type: "list",
             message: "Select an Operation",
             name: "select",
-            choices: ["Add", "Update", "View", "Delete"]
+            choices: ["Add", "Update", "View", "Delete", "Exit"]
         });
         if (ans.select === "Add") {
             let addTodo = await inquirer.prompt({
@@ -47,6 +47,10 @@ async function createTodo(todos) {
             let newTodo = todos.filter(val => val !== deleteTodo.todo);
             todos = [...newTodo];
             todos.forEach(todo => console.log(todo));
+        }
+        if (ans.select === "Exit") {
+            console.log("Thanks For Exploring");
+            break;
         }
     } while (true);
 }

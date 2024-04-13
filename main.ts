@@ -9,7 +9,7 @@ async function createTodo(todos:string[]){
         type:"list",
         message:"Select an Operation",
         name:"select",
-        choices:["Add","Update","View","Delete"]
+        choices:["Add","Update","View","Delete","Exit"]
     })
 
     if (ans.select === "Add"){
@@ -50,6 +50,10 @@ async function createTodo(todos:string[]){
         let newTodo = todos.filter(val =>val !== deleteTodo.todo);
         todos = [...newTodo];
         todos.forEach(todo => console.log(todo));
+    }
+    if (ans.select === "Exit"){
+        console.log("Thanks For Exploring");
+        break;
     }
 } while(true);
     
